@@ -1,0 +1,128 @@
+await tokenA.transfer("0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199", 500n * 10n**18n);
+await tokenA.transfer("0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199", 1000n * 10n**18n);
+await tokenA.mint("0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199", 1000n * 10n**18n);
+await swap.connect(user).swapBToA(50n * 10n**18n);
+(await tokenB.allowance(user.address, swapAddress)).toString()
+await tokenB.connect(user).approve(swapAddress, 500n * 10n**18n);
+(await tokenB.balanceOf(user.address)).toString()
+await tokenB.transfer(user.address, 500n * 10n**18n);
+(await tokenB.balanceOf(swapAddress)).toString()
+(await tokenA.balanceOf(swapAddress)).toString()
+(await tokenB.balanceOf(user.address)).toString()
+(await tokenA.balanceOf(user.address)).toString()
+await swap.connect(user).swapAToB(100n * 10n**18n);
+(await tokenA.allowance(user.address, swapAddress)).toString()
+await tokenA.connect(user).approve(swapAddress, 500n * 10n**18n);
+(await tokenA.balanceOf(user.address)).toString()
+await tokenA.transfer(user.address, 500n * 10n**18n);
+await swap.connect(user).swapAToB(100n * 10n**18n);
+await tokenA.connect(user).approve(swapAddress, 500n * 10n**18n);
+await swap.connect(user).swapAToB(100n * 10n**18n);
+await tokenA.transfer(user.address, 500n * 10n**18n);
+// send 500 TokenA to the user
+await swap.connect(user).swapAToB(100n * 10n**18n);
+// Swap 100 TokenA for TokenB
+await tokenB.connect(user).approve(swapAddress, 1000n * 10n**18n);
+// Approve 1000 TokenB safely
+await tokenA.connect(user).approve(swapAddress, 1000n * 10n**18n);
+// Approve 1000 TokenA safely
+await tokenB.connect(user).approve(swapAddress, 1000 * 10**18);
+// Approve 1000 TokenB if you plan to swap TokenB
+await tokenA.connect(user).approve(swapAddress, 1000 * 10**18);
+// Approve 1000 TokenA for the swap contract
+const [deployer, user] = await ethers.getSigners();
+await tokenB.connect(user).approve(swapAddress, 1000 * 10**18);
+// Similarly, approving TokenB if needed
+await tokenA.connect(user).approve(swapAddress, 1000 * 10**18);
+// Example: approving 1000 TokenA
+console.log("Swap contract TokenB balance:", swapBalanceB.toString());
+console.log("Swap contract TokenA balance:", swapBalanceA.toString());
+swapBalanceB = await tokenB.balanceOf(swapAddress);
+swapBalanceA = await tokenA.balanceOf(swapAddress);
+console.log("Swap contract TokenB balance:", swapBalanceB.toString());
+console.log("Swap contract TokenA balance:", swapBalanceA.toString());
+const swapBalanceB = await tokenB.balanceOf(swapAddress);
+const swapBalanceA = await tokenA.balanceOf(swapAddress);
+const swap   = await Swap.attach(swapAddress);
+const tokenB = await TokenB.attach(tokenBAddress);
+const tokenA = await TokenA.attach(tokenAAddress);
+// Attach to deployed addresses
+const Swap   = await ethers.getContractFactory("Swap");
+const TokenB = await ethers.getContractFactory("TokenB");
+const TokenA = await ethers.getContractFactory("TokenA");
+const swapAddress  = "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0";
+const tokenBAddress = "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512";
+const tokenAAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3"; 
+// Replace with the actual deployed addresses from your Hardhat logs
+console.log("Swap contract TokenB balance:", swapBalanceB.toString());
+console.log("Swap contract TokenA balance:", swapBalanceA.toString());
+const swapBalanceB = await tokenB.balanceOf(swapAddress);
+const swapBalanceA = await tokenA.balanceOf(swapAddress);
+await TokenA.mint(user.address, ethers.utils.parseEther("1000"));
+const TokenB = await ethers.getContractAt("TokenB", "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512");
+const TokenA = await ethers.getContractAt("TokenA", "0x5fbdb2315678afecb367f032d93f642f64180aa3");
+const [user] = await ethers.getSigners();
+(await TokenB.balanceOf(Swap.address)).toString();
+(await TokenB.balanceOf(user.address)).toString();
+(await TokenA.balanceOf(user.address)).toString();
+await Swap.swapAToB(ethers.utils.parseEther("10"));
+await TokenA.transfer(Swap.address, ethers.utils.parseEther("1000")); // optional if needed
+await TokenB.transfer(Swap.address, ethers.utils.parseEther("1000")); // Swap contract gets 1000 TokenB
+// Add TokenB (and optionally TokenA) to Swap contract
+// In Hardhat console
+await Swap.swapAToB(ethers.utils.parseEther("10"));
+await TokenA.approve(Swap.address, ethers.utils.parseEther("100"));
+await TokenB.mint(user.address, ethers.utils.parseEther("1000"));
+await TokenA.mint(user.address, ethers.utils.parseEther("1000"));
+// Mint tokens to user (only once per session)
+const TokenB = await ethers.getContractAt("TokenB", "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512");
+const TokenA = await ethers.getContractAt("TokenA", "0x5fbdb2315678afecb367f032d93f642f64180aa3");
+const Swap = await ethers.getContractAt("Swap", "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0");
+// Get contract instances
+const [user] = await ethers.getSigners();
+// Get signer
+await TokenB.approve(Swap.address, ethers.utils.parseEther("100"));
+await TokenA.approve(Swap.address, ethers.utils.parseEther("100"));
+// Approve swap contract
+await TokenB.approve(Swap.address, ethers.utils.parseEther("100"));
+await TokenA.approve(Swap.address, ethers.utils.parseEther("100"));
+// Approve swap contract
+await TokenB.approve(Swap.address, ethers.utils.parseEther("100"));
+await TokenA.approve(Swap.address, ethers.utils.parseEther("100"));
+// Approve swap contract
+await TokenB.approve(Swap.address, ethers.utils.parseEther("100"));
+await TokenA.approve(Swap.address, ethers.utils.parseEther("100"));
+// Approve swap contract
+// Mint tokens to user (only once per session)await TokenA.mint(user.address, ethers.utils.parseEther("1000"));await TokenB.mint(user.address, ethers.utils.parseEther("1000"));
+// Get signerconst [user] = await ethers.getSigners();// Get contract instancesconst Swap = await ethers.getContractAt("Swap", "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0");const TokenA = await ethers.getContractAt("TokenA", "0x5fbdb2315678afecb367f032d93f642f64180aa3");const TokenB = await ethers.getContractAt("TokenB", "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512");
+const [user] = await ethers.getSigners();const Swap = await ethers.getContractAt("Swap", "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0");const TokenA = await ethers.getContractAt("TokenA", "0x5fbdb2315678afecb367f032d93f642f64180aa3");const TokenB = await ethers.getContractAt("TokenB", "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512");// Mint tokens to user if neededawait TokenA.mint(user.address, ethers.utils.parseEther("1000"));await TokenB.mint(user.address, ethers.utils.parseEther("1000"));// Approve swap contractawait TokenA.approve(Swap.address, ethers.utils.parseEther("100"));await TokenB.approve(Swap.address, ethers.utils.parseEther("100"));// Swap 10 TokenA -> TokenBawait Swap.swapAToB(ethers.utils.parseEther("10"));// Check balances(await TokenA.balanceOf(user.address)).toString();(await TokenB.balanceOf(user.address)).toString();
+(await TokenB.balanceOf(user.address)).toString();
+(await TokenA.balanceOf(user.address)).toString();
+// Check balances
+await Swap.swapAToB(ethers.utils.parseEther("10"));
+// Swap 10 TokenA -> TokenB
+await TokenB.approve(Swap.address, ethers.utils.parseEther("100"));
+await TokenA.approve(Swap.address, ethers.utils.parseEther("100"));
+// Approve swap contract
+await TokenB.mint(user.address, ethers.utils.parseEther("1000"));
+await TokenA.mint(user.address, ethers.utils.parseEther("1000"));
+// Mint tokens to user if needed
+const TokenB = await ethers.getContractAt("TokenB", "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512");
+const TokenA = await ethers.getContractAt("TokenA", "0x5fbdb2315678afecb367f032d93f642f64180aa3");
+const Swap = await ethers.getContractAt("Swap", "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0");
+const [user] = await ethers.getSigners();
+(await TokenB.balanceOf(user.address)).toString();
+(await TokenA.balanceOf(user.address)).toString();
+// Check balances
+await Swap.swapAToB(ethers.utils.parseEther("10"));
+// Swap 10 TokenA -> TokenB
+await TokenB.approve(Swap.address, ethers.utils.parseEther("100"));
+await TokenA.approve(Swap.address, ethers.utils.parseEther("100"));
+// Approve swap contract
+await TokenB.mint(user.address, ethers.utils.parseEther("1000"));
+await TokenA.mint(user.address, ethers.utils.parseEther("1000"));
+// Mint tokens to user if needed
+const TokenB = await ethers.getContractAt("TokenB", "TOKENB_ADDRESS");
+const TokenA = await ethers.getContractAt("TokenA", "TOKENA_ADDRESS");
+const Swap = await ethers.getContractAt("Swap", "SWAP_CONTRACT_ADDRESS");
+const [user] = await ethers.getSigners();
