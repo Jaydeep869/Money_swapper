@@ -1,0 +1,13 @@
+contract deployed at 0x7B7e09F6dBcc6322a3edB8236F574c211A4FaF08
+
+
+
+csepolia contract deployed at 0x752e9789cA923a730A11c0a7aEc606Ab94E7eE2A
+
+
+amoy contract deployed at 0x53C9ceAaC2DbE5c8f6D63D05C69e96F188CF2194
+
+
+token sepoli add 0xc51A086B0088B717d07156c6dC94FD7AF66F205A
+
+token amoy add  0x89048354F6F1ef22f3677d4bE34F71231dBCAB3a
